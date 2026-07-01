@@ -80,7 +80,7 @@ p {
 }
 
 body {
-  background-image: linear-gradient(rgba(24, 28, 32, 0.4), rgba(24, 28, 32, 0.4)), url('./images/SlateBlueMarble.jpg');
+  background-image: linear-gradient(rgba(24, 28, 32, 0.4), rgba(24, 28, 32, 0.4)), url('images/SlateBlueMarble.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
