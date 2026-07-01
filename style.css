@@ -1,0 +1,86 @@
+/* 1. Reset & Slate Marble Color Palette */
+:root {
+  --bg-slate-base: #181c20;      /* Dark core slate grey */
+  --bg-slate-light: #22272e;     /* Lighter grey mineral spots */
+  --bg-slate-dark: #0f1115;      /* Deep black-grey fissures */
+  --vein-color: rgba(255, 255, 255, 0.015); /* Faint marble veins */
+  
+  --bg-card: rgba(30, 35, 41, 0.7); /* Translucent card to see marble underneath */
+  --bg-border: #2d333b;
+  --text-primary: #f0f6fc;
+  --accent-gold: #dfa739;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Procedural CSS Slate Marble Background */
+body {
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+  
+  /* Layering gradients creates the random, organic look of cut marble stone */
+  background-color: var(--bg-slate-base);
+  background-image:
+    /* Layer 1: Simulated jagged diagonal marble veins */
+    linear-gradient(45deg, var(--vein-color) 25%, transparent 25%), 
+    linear-gradient(-45deg, var(--vein-color) 25%, transparent 25%),
+    /* Layer 2: Soft, uneven mineral spots (cloudy marble texture) */
+    radial-gradient(circle at 20% 30%, var(--bg-slate-light) 0%, transparent 60%),
+    radial-gradient(circle at 75% 60%, var(--bg-slate-dark) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, var(--bg-slate-light) 0%, transparent 40%);
+  
+  /* Sizing the textures so they blend naturally without visible repeating lines */
+  background-size: 100% 100%, 100% 100%, 1200px 1200px, 1400px 1400px, 1000px 1000px;
+  background-attachment: fixed;
+}
+
+/* 3. Interface Layout Elements */
+.card {
+  background-color: var(--bg-card);
+  backdrop-filter: blur(8px); /* Lets the marble texture softly peek through */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--bg-border);
+  border-radius: 6px;
+  padding: 30px;
+  max-width: 650px;
+  margin: 60px auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+p {
+  color: #8b949e;
+  margin-bottom: 24px;
+}
+
+.btn-gold {
+  background-color: var(--accent-gold);
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-gold:hover {
+  opacity: 0.9;
+}
+
+body {
+  background-image: linear-gradient(rgba(24, 28, 32, 0.4), rgba(24, 28, 32, 0.4)), url('/images/SlateBlueMarble.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
