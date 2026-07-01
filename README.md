@@ -1,4 +1,4 @@
-## This is the Goblin Code Guild Repo 👋
+# This is the Goblin Code Guild Repo 👋
 
 <!--
 **GoblinCode-guild/GoblinCode-guild** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
