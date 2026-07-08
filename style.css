@@ -28,7 +28,7 @@ body {
   padding: 30px;
   max-width: 450px;
   margin: 80px auto;
-  /*box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);*/
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 h1 {
@@ -63,16 +63,25 @@ body {
   background-attachment: fixed;
 }
 
-#profile_pic {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    float: right;
-    margin-top: 100px;
-    margin-right: 40px;
-
-    border: 1px solid var(--bg-border);
+#emblem {
+  /*position: absolute;*/
+  float: left;
+  height: 50px;
+  margin-top: 15px;
+  margin-left: 10px;
 }
+
+#profile_pic {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin-top: 18px;
+  margin-right: 10px;
+
+  border: 1px solid var(--bg-border);
+}
+
 /* --- Base Theme --- */
 body {
   margin: 0;
