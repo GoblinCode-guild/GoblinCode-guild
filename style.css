@@ -1,12 +1,6 @@
-/* 1. Reset & Slate Marble Color Palette */
 :root {
-  --bg-slate-base: #181c20;      /* Dark core slate grey */
-  --bg-slate-light: #22272e;     /* Lighter grey mineral spots */
-  --bg-slate-dark: #0f1115;      /* Deep black-grey fissures */
-  --vein-color: rgba(255, 255, 255, 0.015); /* Faint marble veins */
-  
   --bg-card: rgba(30, 35, 41, 0.7); /* Translucent card to see marble underneath */
-  --bg-border: #2d333b;
+  --bg-border: #4d535b;
   --text-primary: #f0f6fc;
   --accent-gold: #dfa739;
 }
@@ -17,40 +11,24 @@
   padding: 0;
 }
 
-/* 2. Procedural CSS Slate Marble Background */
 body {
   color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   line-height: 1.6;
-  
-  /* Layering gradients creates the random, organic look of cut marble stone */
-  background-color: var(--bg-slate-base);
-  background-image:
-    /* Layer 1: Simulated jagged diagonal marble veins */
-    linear-gradient(45deg, var(--vein-color) 25%, transparent 25%), 
-    linear-gradient(-45deg, var(--vein-color) 25%, transparent 25%),
-    /* Layer 2: Soft, uneven mineral spots (cloudy marble texture) */
-    radial-gradient(circle at 20% 30%, var(--bg-slate-light) 0%, transparent 60%),
-    radial-gradient(circle at 75% 60%, var(--bg-slate-dark) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, var(--bg-slate-light) 0%, transparent 40%);
-  
-  /* Sizing the textures so they blend naturally without visible repeating lines */
-  background-size: 100% 100%, 100% 100%, 1200px 1200px, 1400px 1400px, 1000px 1000px;
-  background-attachment: fixed;
 }
 
 /* 3. Interface Layout Elements */
 .card {
-  background-color: var(--bg-card);
-  backdrop-filter: blur(8px); /* Lets the marble texture softly peek through */
-  -webkit-backdrop-filter: blur(8px);
+  /*background-color: var(--bg-card);*/
+  /*backdrop-filter: blur(8px); /* Lets the marble texture softly peek through */
+  /*-webkit-backdrop-filter: blur(8px);*/
   border: 1px solid var(--bg-border);
-  border-radius: 6px;
+  /*border-radius: 6px;*/
   padding: 30px;
-  max-width: 650px;
-  margin: 60px auto;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  max-width: 450px;
+  margin: 80px auto;
+  /*box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);*/
 }
 
 h1 {
@@ -84,12 +62,146 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
+
 #profile_pic {
     border-radius: 50%;
     width: 150px;
     height: 150px;
     float: right;
-    margin: 20px;
-    border: 3px solid #dfa739;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    margin-top: 100px;
+    margin-right: 40px;
+
+    border: 1px solid var(--bg-border);
+}
+/* --- Base Theme --- */
+body {
+  margin: 0;
+  /*font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;*/
+  overflow-x: hidden; /* Prevents 100vw from causing horizontal scroll */
+}
+
+.nav-header {
+  /*background-color: #1a1e2e;*/
+  border-bottom: 1px solid #2a3040;
+}
+
+.nav-container {
+  max-width: 100vw;
+  margin: 0 auto;
+  border-bottom: 1px solid #2a3040;
+}
+
+/* --- Primary Navigation --- */
+.primary-nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative; /* Anchors the gold indicator */
+  padding: 25px 0;    /* Creates a generous hover hit-area */
+}
+
+.nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 30; /* Keeps text above the glow */
+}
+
+/* 1. Standard Hover State */
+.nav-item:hover .nav-link {
+  color: #cbd5e1; /* Slightly brighter */
+}
+
+/* 2. Actively Selected Page State (Extra Highlight) */
+.nav-link.selected {
+  color: #ffffff; /* Pure white */
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+/* --- The Hidden Subnav Tier --- */
+.subnav-tier {
+  position: absolute;
+  top: 100%;
+  
+  /* Centers the full-width dropdown across the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 125vw; 
+  
+  /*background-color: #1a1e2e;*/
+  border-bottom: 1px solid #2a3040;
+  border-top: 1px solid #2a3040;
+  
+  /* Hidden by default, with a slight slide-down effect */
+  opacity: 0;
+  visibility: hidden;
+  margin-top: -5px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.secondary-nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 15px 0;
+}
+
+.sub-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.sub-link:hover {
+  color: #facc15; /* Highlights gold on hover */
+}
+
+/* --- The Solid Gold Triangle & Glow --- */
+.gold-indicator {
+  position: absolute;
+  bottom: 0; /* Sits exactly on the bottom border of the primary nav */
+  left: 50%;
+  
+  /* Center horizontally, push halfway down, and rotate into a diamond */
+  transform: translate(-50%, 50%) rotate(45deg);
+  
+  width: 12px;
+  height: 12px;
+  background-color: #facc15; /* Solid fill */
+  
+  /* The semi-circular upward glow. 
+    Because it is rotated 45deg, negative X and negative Y push the shadow "UP". 
+  */
+  box-shadow: -4px -4px 25px 2px rgba(250, 204, 21, 0.45);
+  
+  /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 20; /* Sits above the subnav borders */
+}
+
+/* --- Hover Reveal Mechanics --- */
+/* Trigger both the subnav and the triangle when the primary item is hovered */
+.nav-item:hover .subnav-tier {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0; /* Completes the slide-down animation */
+}
+
+.nav-item:hover .gold-indicator {
+  opacity: 1;
 }
